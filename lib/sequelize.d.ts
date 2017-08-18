@@ -159,6 +159,21 @@ export interface Options {
   protocol?: string;
 
   /**
+   * The username which is used to authenticate against the database.
+   */
+  username?: string;
+
+  /**
+   * The password which is used to authenticate against the database.
+   */
+  password?: string;
+
+  /**
+   * The name of the database
+   */
+  database?: string;
+
+  /**
    * Default options for model definitions. See sequelize.define for options
    */
   define?: ModelOptions;
@@ -976,6 +991,17 @@ export class Sequelize {
    * @param options See above for possible options
    */
   constructor(uri: string, options?: Options);
+
+  /**
+   * Instantiate sequelize with an options object inluding username, password,
+   * and database.
+   * @name sequelize
+   * @constructor
+   *
+   * @param options An object with options. See above for possible
+   * options.
+   */
+  constructor(options: Options);
 
   /**
    * Returns the specified dialect.
