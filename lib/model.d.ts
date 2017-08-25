@@ -1301,7 +1301,7 @@ export interface ModelAttributeColumnReferencesOptions {
   /**
    * If this column references another table, provide it here as a Model, or a string
    */
-  model?: string | typeof Model;
+  model?: string | { tableName: string; schema: string; } | typeof Model;
 
   /**
    * The column of the foreign table that this column references
