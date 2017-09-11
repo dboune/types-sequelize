@@ -1676,7 +1676,7 @@ export abstract class Model {
    *  string or a type-description object, with the properties described below:
    * @param options These options are merged with the default define options provided to the Sequelize constructor
    */
-  static init(attributes: ModelAttributes, options: InitOptions): void;
+  static init<T>(this: T, attributes: ModelAttributes, options: InitOptions): T;
 
   /**
    * Remove attribute from model definition
