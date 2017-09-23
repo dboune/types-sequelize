@@ -21,6 +21,7 @@ import {
   AndOperator,
   OrOperator
 } from './model';
+import { Namespace } from 'continuation-local-storage'
 
 
 /**
@@ -355,6 +356,14 @@ export class Sequelize {
   static where: typeof where;
   static condition: typeof condition;
 
+  /**
+   * Use CLS with Sequelize.
+   * CLS namespace provided is stored as `Sequelize._cls`
+   * and bluebird Promise is patched to use the namespace, using `cls-bluebird` module.
+   *
+   * @param ns   CLS namespace
+   */
+  static useCLS(ns: Namespace): typeof Sequelize
 
   // -------------------- Static Hooks ---------------------------------------------------------------------
 
