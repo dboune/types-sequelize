@@ -1301,7 +1301,7 @@ export interface ModelAttributeColumnReferencesOptions {
   /**
    * If this column references another table, provide it here as a Model, or a string
    */
-  model?: string | typeof Model;
+  model?: string | { tableName: string; schema: string; } | typeof Model;
 
   /**
    * The column of the foreign table that this column references
@@ -1676,7 +1676,7 @@ export abstract class Model {
    *  string or a type-description object, with the properties described below:
    * @param options These options are merged with the default define options provided to the Sequelize constructor
    */
-  static init(attributes: ModelAttributes, options: InitOptions): void;
+  static init<T>(this: T, attributes: ModelAttributes, options: InitOptions): T;
 
   /**
    * Remove attribute from model definition

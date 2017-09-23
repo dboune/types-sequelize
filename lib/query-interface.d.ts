@@ -188,7 +188,7 @@ export class QueryInterface {
    * @param tableName Table name.
    * @param options   Query options, particularly "force".
    */
-  dropTable(tableName: string, options?: QueryInterfaceDropTableOptions): Promise<void>;
+  dropTable(tableName: string | { schema?: string, tableName?: string }, options?: QueryInterfaceDropTableOptions): Promise<void>;
 
   /**
    * Drops all tables.
@@ -223,13 +223,13 @@ export class QueryInterface {
   /**
    * Adds a new column to a table
    */
-  addColumn(table: string, key: string, attribute: ModelAttributeColumnOptions | DataType,
+  addColumn(table: string | { schema?: string, tableName?: string }, key: string, attribute: ModelAttributeColumnOptions | DataType,
     options?: QueryInterfaceOptions): Promise<void>;
 
   /**
    * Removes a column from a table
    */
-  removeColumn(table: string, attribute: string, options?: QueryInterfaceOptions): Promise<void>;
+  removeColumn(table: string | { schema?: string, tableName?: string }, attribute: string, options?: QueryInterfaceOptions): Promise<void>;
 
   /**
    * Changes a column
@@ -248,23 +248,23 @@ export class QueryInterface {
   /**
    * Adds a new index to a table
    */
-  addIndex(tableName: string, attributes: string[], options?: QueryInterfaceIndexOptions,
+  addIndex(tableName: string | { schema?: string, tableName?: string }, attributes: string[], options?: QueryInterfaceIndexOptions,
     rawTablename?: string): Promise<void>;
-  addIndex(tableName: string, options: QueryInterfaceIndexOptions & { fields: string[] },
+  addIndex(tableName: string | { schema?: string, tableName?: string }, options: QueryInterfaceIndexOptions & { fields: string[] },
     rawTablename?: string): Promise<void>;
 
   /**
    * Removes an index of a table
    */
-  removeIndex(tableName: string, indexName: string,
+  removeIndex(tableName: string | { schema?: string, tableName?: string }, indexName: string,
     options?: QueryInterfaceIndexOptions): Promise<void>;
-  removeIndex(tableName: string, attributes: string[],
+  removeIndex(tableName: string | { schema?: string, tableName?: string }, attributes: string[],
     options?: QueryInterfaceIndexOptions): Promise<void>;
 
   /**
    * Shows the index of a table
    */
-  showIndex(tableName: string | Object, options?: QueryOptions): Promise<Object>;
+  showIndex(tableName: string | { schema?: string, tableName?: string }, options?: QueryOptions): Promise<Object>;
 
   /**
    * Put a name to an index
@@ -274,7 +274,7 @@ export class QueryInterface {
   /**
    * Returns all foreign key constraints of a table
    */
-  getForeignKeysForTables(tableNames: string, options?: QueryInterfaceOptions): Promise<Object>;
+  getForeignKeysForTables(tableNames: string[], options?: QueryInterfaceOptions): Promise<Object>;
 
   /**
    * Inserts a new record
