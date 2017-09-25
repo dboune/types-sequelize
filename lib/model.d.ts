@@ -77,7 +77,7 @@ export interface ScopeOptions {
  *
  * The `Array<string | number>` is to support string with replacements, like `['id > ?', 25]`
  */
-export type WhereOptions = WhereAttributeHash | AndOperator | OrOperator | Where | Array<string | number>;
+export type WhereOptions = WhereAttributeHash | AndOperator | OrOperator | Where | Literal | Array<string | number>;
 
 /**
  * Example: `$any: [2,3]` becomes `ANY ARRAY[2, 3]::INTEGER`
