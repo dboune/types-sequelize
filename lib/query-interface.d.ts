@@ -315,7 +315,7 @@ export class QueryInterface {
   /**
    * Deletes multiple rows at once
    */
-  bulkDelete(tableName: string, identifier: Object, options?: QueryOptions,
+  bulkDelete(tableName: string | { schema?: string, tableName?: string }, identifier: Object, options?: QueryOptions,
     model?: typeof Model): Promise<Object>;
 
   /**
