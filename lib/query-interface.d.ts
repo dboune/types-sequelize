@@ -1,7 +1,7 @@
 
 import {Sequelize} from './sequelize';
 import {Promise} from './promise';
-import {ModelAttributes, ModelAttributeColumnOptions, Model} from './model';
+import {ModelAttributes, ModelAttributeColumnOptions, ModelIndexesOptions, Model} from './model';
 import {Transaction} from './transaction';
 import {DataType} from './data-types';
 
@@ -252,6 +252,7 @@ export class QueryInterface {
     rawTablename?: string): Promise<void>;
   addIndex(tableName: string | { schema?: string, tableName?: string }, options: QueryInterfaceIndexOptions & { fields: string[] },
     rawTablename?: string): Promise<void>;
+  addIndex(tableName: string | { schema?: string, tableName?: string }, options: ModelIndexesOptions, rawTableName?: string): Promise<void>
 
   /**
    * Removes an index of a table
