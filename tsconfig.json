@@ -1,29 +1,14 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
     "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmit": true,
-    "strictNullChecks": true,
-    "lib": [
-      "es2015",
-      "es2015.collection"
-    ],
-    "typeRoots": [
-      "typings/globals",
-      "typings/modules"
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "typings/globals/*",
-        "typings/modules/*"
-      ]
-    }
+    "lib": ["es2015", "es2015.collection", "dom"]
   },
-  "include": [
-    "typings/index.d.ts",
-    "lib/**/*.d.ts",
-    "index.d.ts"
-  ]
+  "include": ["lib/**/*.d.ts", "index.d.ts"]
 }
