@@ -21,6 +21,7 @@ import {
   AndOperator,
   OrOperator
 } from './model';
+import { Op } from './operators';
 import { Namespace } from 'continuation-local-storage'
 
 
@@ -1396,26 +1397,27 @@ export function where(attr: Object, comparator: string, logic: string | Object):
 export function where(attr: Object, logic: string | Object): Where;
 export function condition(attr: Object, logic: string | Object): Where;
 
-export {DataTypes};
+export { DataTypes };
+export { Op };
 export * from './model';
 export * from './transaction';
 export * from './model';
 export * from './associations/index';
 export * from './errors';
-export {BaseError as Error} from './errors';
-export {useInflection} from './utils';
+export { BaseError as Error } from './errors';
+export { useInflection } from './utils';
 import * as Deferrable from './deferrable';
-export {Deferrable};
-export {Promise} from './promise';
+export { Deferrable };
+export { Promise } from './promise';
 import * as Utils from './utils';
-export {Utils};
+export { Utils };
 export * from './utils';
 
-export {Validator as validator} from './utils/validator-extras';
-import {validator} from './utils/validator-extras';
-export {validator as Validator};
+export { Validator as validator } from './utils/validator-extras';
+import { validator } from './utils/validator-extras';
+export { validator as Validator };
 
 import QueryTypes = require('./query-types');
-export {QueryTypes};
+export { QueryTypes };
 
 export default Sequelize;
