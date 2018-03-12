@@ -357,7 +357,7 @@ export type HasManyHasAssociationsMixin<TModel, TModelPrimaryKey> = (
  * The options for the countAssociations mixin of the hasMany association.
  * @see HasManyCountAssociationsMixin
  */
-export interface HasManyCountAssociationsMixinOptions extends Transactionable, Filterable {
+export interface HasManyCountAssociationsMixinOptions extends FindOptions {
     /**
      * Apply a scope on the related model, or remove its default scope by passing false.
      */
