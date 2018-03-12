@@ -428,6 +428,11 @@ export type BelongsToManyHasAssociationsMixin<TModel, TModelPrimaryKey> = (
  */
 export interface BelongsToManyCountAssociationsMixinOptions extends FindOptions {
     /**
+     * Prevents all through table columns from being selected
+     */
+    includeIgnoreAttributes: boolean
+
+    /**
      * Through Options
      */
     through?: IncludeThroughOptions
