@@ -3,6 +3,7 @@ import {
     CreateOptions,
     Filterable,
     FindOptions,
+    IncludeThroughOptions,
     InstanceDestroyOptions,
     InstanceUpdateOptions,
     Model,
@@ -426,6 +427,12 @@ export type BelongsToManyHasAssociationsMixin<TModel, TModelPrimaryKey> = (
  * @see BelongsToManyCountAssociationsMixin
  */
 export interface BelongsToManyCountAssociationsMixinOptions extends Transactionable, Filterable {
+
+    /**
+     * Options for the through table
+     */
+    through?: IncludeThroughOptions
+
     /**
      * Apply a scope on the related model, or remove its default scope by passing false.
      */
