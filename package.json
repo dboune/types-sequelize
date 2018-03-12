@@ -1,6 +1,6 @@
 {
   "name": "@types/sequelize",
-  "version": "4.0.0-db.7",
+  "version": "4.0.0-db.8",
   "private": true,
   "description": "Typescript Typings for Sequelize",
   "typings": "index.d.ts",
