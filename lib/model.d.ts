@@ -282,7 +282,12 @@ export interface WhereAttributeHash {
 /**
  * Through options for Include Options
  */
-export interface IncludeThroughOptions extends Filterable, Projectable {}
+export interface IncludeThroughOptions extends Filterable, Projectable {
+    /**
+     * Causes though table attributes to not be included in query automatically.
+     */
+    includeIgnoreAttributes?: boolean
+}
 
 /**
  * Options for eager-loading associated models, also allowing for all associations to be loaded at once
