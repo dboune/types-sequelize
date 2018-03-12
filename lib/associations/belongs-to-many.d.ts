@@ -429,6 +429,11 @@ export type BelongsToManyHasAssociationsMixin<TModel, TModelPrimaryKey> = (
 export interface BelongsToManyCountAssociationsMixinOptions extends Transactionable, Filterable {
 
     /**
+     * Causes though table attributes to not be included in query automatically.
+     */
+    includeIgnoreAttributes?: boolean
+
+    /**
      * Options for the through table
      */
     through?: IncludeThroughOptions
