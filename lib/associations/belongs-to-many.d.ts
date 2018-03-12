@@ -430,7 +430,7 @@ export interface BelongsToManyCountAssociationsMixinOptions extends FindOptions 
     /**
      * Prevents all through table columns from being selected
      */
-    includeIgnoreAttributes: boolean
+    includeIgnoreAttributes?: boolean
 
     /**
      * Through Options
