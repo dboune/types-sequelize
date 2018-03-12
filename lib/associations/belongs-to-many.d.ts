@@ -13,6 +13,7 @@ import {
 import { Promise } from '../promise'
 import { Transaction } from '../transaction'
 import { Association, AssociationScope, ForeignKeyOptions, ManyToManyOptions, MultiAssociationAccessors } from './base'
+import { Includeable } from "../sequelize";
 
 /**
  * Used for a association table in n:m associations.
@@ -427,6 +428,11 @@ export type BelongsToManyHasAssociationsMixin<TModel, TModelPrimaryKey> = (
  * @see BelongsToManyCountAssociationsMixin
  */
 export interface BelongsToManyCountAssociationsMixinOptions extends Transactionable, Filterable {
+
+    /**
+     * Load further nested related models
+     */
+    include?: Includeable[]
 
     /**
      * Causes though table attributes to not be included in query automatically.
