@@ -80,6 +80,12 @@ export class BelongsToMany extends Association {
  * @see BelongsToManyGetAssociationsMixin
  */
 export interface BelongsToManyGetAssociationsMixinOptions extends FindOptions {
+
+    /**
+     * Array of attributes to select from the join table
+     */
+    joinTableAttributes: string[]
+
     /**
      * Apply a scope on the related model, or remove its default scope by passing false.
      */
