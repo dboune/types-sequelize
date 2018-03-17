@@ -6,7 +6,8 @@
   "typings": "index.d.ts",
   "dependencies": {
     "@types/validator": "^6.3.0",
-    "@types/bluebird": "^3.5.5"
+    "@types/bluebird": "^3.5.5",
+    "@types/continuation-local-storage": "^3.2.1"
   },
   "peerDependencies": {
     "typescript": ">=2.0.0"

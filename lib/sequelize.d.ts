@@ -1,3 +1,5 @@
+import * as cls from 'continuation-local-storage'
+
 import * as DataTypes from './data-types'
 import {
     AndOperator,
@@ -1298,15 +1300,14 @@ export class Sequelize {
      * });
      * ```
      *
-     * If you have [CLS](https://github.com/othiym23/node-continuation-local-storage) enabled, the transaction
-     * will automatically be passed to any query that runs witin the callback. To enable CLS, add it do your
-     * project, create a namespace and set it on the sequelize constructor:
+     * If you have [CLS](https://github.com/othiym23/node-continuation-local-storage) enabled, the transaction will automatically be passed to any query that runs within the callback.
+     * To enable CLS, add it do your project, create a namespace and set it on the sequelize constructor:
      *
      * ```js
-     * var cls = require('continuation-local-storage'),
-     *     ns = cls.createNamespace('....');
-     * var Sequelize = require('sequelize');
-     * Sequelize.cls = ns;
+     * const cls = require('continuation-local-storage');
+     * const ns = cls.createNamespace('....');
+     * const Sequelize = require('sequelize');
+     * Sequelize.useCLS(ns);
      * ```
      * Note, that CLS is enabled for all sequelize instances, and all instances will share the same namespace
      *
@@ -1316,6 +1317,15 @@ export class Sequelize {
     public transaction(options: TransactionOptions, autoCallback: (t: Transaction) => PromiseLike<any>): Promise<any>
     public transaction(autoCallback: (t: Transaction) => PromiseLike<any>): Promise<any>
     public transaction(options?: TransactionOptions): Promise<Transaction>
+
+    /**
+     * Use CLS with Sequelize.
+     * CLS namespace provided is stored as `Sequelize._cls`
+     * and bluebird Promise is patched to use the namespace, using `cls-bluebird` module.
+     * @param {Object}   ns   CLS namespace
+     * @returns {Object}      Sequelize constructor
+     */
+    public static useCLS(ns: cls.Namespace): typeof Sequelize
 
     /**
      * Close all connections used by this sequelize instance, and free all references so the instance can be
