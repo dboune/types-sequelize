@@ -1314,8 +1314,8 @@ export class Sequelize {
      * @param options Transaction Options
      * @param autoCallback Callback for the transaction
      */
-    public transaction(options: TransactionOptions, autoCallback: (t: Transaction) => PromiseLike<any>): Promise<any>
-    public transaction(autoCallback: (t: Transaction) => PromiseLike<any>): Promise<any>
+    public transaction<T>(options: TransactionOptions, autoCallback: (t: Transaction) => PromiseLike<T>): Promise<T>
+    public transaction<T>(autoCallback: (t: Transaction) => PromiseLike<T>): Promise<T>
     public transaction(options?: TransactionOptions): Promise<Transaction>
 
     /**
