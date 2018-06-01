@@ -14,10 +14,9 @@ import { AbstractDeferrable } from './deferrable'
 import { ModelManager } from './model-manager'
 import { Promise } from './promise'
 import { QueryOptions } from './query-interface'
-import { SyncOptions } from './sequelize'
-import { Sequelize } from './sequelize'
+import { Sequelize, SyncOptions } from './sequelize'
 import { Transaction } from './transaction'
-import { Col, Fn, Literal, Where } from './utils'
+import { Cast, Col, Fn, Literal, Where } from './utils'
 
 export interface Logging {
     /**
@@ -363,14 +362,14 @@ export type OrderItem =
 export type Order = string | Fn | Col | Literal | OrderItem[]
 
 export type FindAttributeOptions =
-    | (string | [string | Literal | Fn, string])[]
+    | (string | [string | Cast | Fn | Literal, string])[]
     | {
           exclude: string[]
-          include?: (string | [string | Literal | Fn, string])[]
+          include?: (string | [string | Cast | Fn | Literal, string])[]
       }
     | {
           exclude?: string[]
-          include: (string | [string | Literal | Fn, string])[]
+          include: (string | [string | Cast | Fn | Literal, string])[]
       }
 
 /**
