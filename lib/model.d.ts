@@ -428,6 +428,11 @@ export interface FindOptions extends Logging, Transactionable, Filterable, Proje
     having?: WhereAttributeHash
 
     /**
+     * Don't select include attributes at all (internal)
+     */
+    includeIgnoreAttributes?: boolean
+
+    /**
      * Use sub queries (internal)
      */
     subQuery?: boolean
