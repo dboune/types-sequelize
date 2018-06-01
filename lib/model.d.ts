@@ -104,7 +104,7 @@ export interface ScopeOptions {
 /**
  * The type accepted by every `where` option
  */
-export type WhereOptions = WhereAttributeHash | AndOperator | OrOperator | Where | Literal | Array<string | number>
+export type WhereOptions = WhereAttributeHash | AndOperator | OrOperator | Where | Literal | string[] | number[]
 
 /**
  * Example: `$any: [2,3]` becomes `ANY ARRAY[2, 3]::INTEGER`
