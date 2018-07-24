@@ -251,6 +251,7 @@ export type WhereValue =
     | string // literal value
     | number // literal value
     | boolean // literal value
+    | Date // Date object
     | null
     | WhereOperators
     | WhereAttributeHash // for JSON columns
@@ -259,7 +260,7 @@ export type WhereValue =
     | OrOperator
     | AndOperator
     | WhereGeometryOptions
-    | (string | number | WhereAttributeHash)[] // implicit $or
+    | (string | number | Date | WhereAttributeHash)[] // implicit $or
 
 /**
  * A hash of attributes to describe your search.
